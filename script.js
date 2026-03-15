@@ -5,7 +5,8 @@ function toggleFilter(id) {
   body.classList.toggle("open");
   btn.classList.toggle("filter-open");
 }
-document.getElementById("priceBtn").classList.add("filter-open");
+const priceBtn = document.getElementById("priceBtn");
+if (priceBtn) priceBtn.classList.add("filter-open");
 
 function toggleSort(id) {
   const menu = document.getElementById(id);
