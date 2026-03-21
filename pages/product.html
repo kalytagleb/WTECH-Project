@@ -16,7 +16,7 @@
       class="bg-white border-b border-gray-200 px-8 flex items-center justify-between h-16 sticky top-0 z-20"
     >
       <div class="hidden md:flex items-center gap-9">
-        <a href="../home.html" class="font-semibold text-sm hover:opacity-60 transition-opacity"
+        <a href="../index.html" class="font-semibold text-sm hover:opacity-60 transition-opacity"
           >Home</a
         >
         <a href="#" class="font-semibold text-sm hover:opacity-60 transition-opacity">Best Deals</a>
@@ -253,14 +253,14 @@
                 class="flex items-center border border-gray-200 rounded-xl overflow-hidden bg-white"
               >
                 <button
-                  onclick="changeQuantity(-1)"
+                  onclick="changeQuantity(this, -1)"
                   class="w-10 h-11 flex items-center justify-center text-xl font-bold text-gray-400 hover:text-black transition-colors"
                 >
                   -
                 </button>
-                <span id="qty" class="w-10 text-center text-sm font-bold mono">1</span>
+                <span data-qty class="w-10 text-center text-sm font-bold mono">1</span>
                 <button
-                  onclick="changeQuantity(1)"
+                  onclick="changeQuantity(this, 1)"
                   class="w-10 h-11 flex items-center justify-center text-xl font-bold text-gray-400 hover:text-black transition-colors"
                 >
                   +
