@@ -25,10 +25,21 @@ function toggleMobileCat() {
   if (arrow) arrow.classList.toggle('rotate-180');
 }
 
-let qty = 1;
-function changeQuantity(d) {
-  qty = Math.max(1, qty + d);
-  document.getElementById('qty').textContent = qty;
+function changeQuantity(btn, delta) {
+  const container = btn.parentElement;
+  const qtyEl = container.querySelector('[data-qty]');
+  let qty = parseInt(qtyEl.textContent);
+  qty += delta;
+  if (qty < 1) qty = 1;
+  qtyEl.textContent = qty;
+}
+
+function removeItem(btn) {
+  const row = btn.closest('[class*="rounded-xl"][class*="border"]');
+  row.style.transition = 'opacity 0.3s transform 0.3s';
+  row.style.opacity = '0';
+  row.style.transform = 'translateX(8px)';
+  setTimeout(() => row.remove(), 300);
 }
 
 function addToCart(btn) {
