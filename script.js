@@ -74,3 +74,48 @@ document.addEventListener('click', (e) => {
     mobileMenu.classList.remove('open');
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const searchToggleBtn = document.getElementById('searchToggleBtn');
+  const searchWrapper = document.getElementById('searchWrapper');
+  const searchInput = document.getElementById('searchInput');
+
+  let isSearchOpen = false;
+
+  if (searchToggleBtn && searchWrapper && searchInput) {
+    searchToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isSearchOpen = !isSearchOpen;
+
+      if (isSearchOpen) {
+        searchWrapper.classList.remove('opacity-0', 'pointer-events-none', 'translate-x-4');
+        searchWrapper.classList.add('opacity-100', 'pointer-events-auto', 'translate-x-0');
+        setTimeout(() => searchInput.focus(), 100);
+      } else {
+        searchWrapper.classList.add('opacity-0', 'pointer-events-none', 'translate-x-4');
+        searchWrapper.classList.remove('opacity-100', 'pointer-events-auto', 'translate-x-0');
+        searchInput.blur();
+      }
+    });
+
+    searchWrapper.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      if (isSearchOpen) {
+        searchInput.blur();
+      }
+    });
+
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        const query = searchInput.value.trim();
+        if (query) {
+          window.location.href = `pages/catalog.html?search=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  }
+});

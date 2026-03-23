@@ -45,18 +45,30 @@
           </div>
         </div>
       </div>
-
       <div class="hidden md:flex items-center gap-6">
-        <a
-          href="#"
-          class="flex items-center gap-1 text-sm font-semibold hover:opacity-60 transition-opacity"
-        >
-          <img src="../resources/search.svg" class="w-4 h-4" alt="" />
-          Search
-        </a>
+        <div class="relative flex items-center">
+          <div
+            id="searchWrapper"
+            class="absolute right-[100%] mr-3 opacity-0 pointer-events-none translate-x-4 transition-all duration-300 ease-in-out"
+          >
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search products..."
+              class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-2 text-sm font-mono outline-none focus:border-gray-900 focus:bg-white transition-colors w-48 xl:w-64 shadow-sm"
+            />
+          </div>
 
+          <button
+            id="searchToggleBtn"
+            class="flex items-center gap-1 text-sm font-semibold hover:opacity-60 transition-opacity bg-white z-10 relative"
+          >
+            <img src="../resources/search.svg" class="w-4 h-4" alt="" />
+            Search
+          </button>
+        </div>
         <a
-          href="cart.html"
+          href="./cart.html"
           class="flex items-center gap-1 text-sm hover:opacity-60 transition-opacity"
         >
           <img src="../resources/cart.svg" class="w-4 h-4" alt="" />
